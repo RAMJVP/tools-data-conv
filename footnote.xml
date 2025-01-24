@@ -1,0 +1,54 @@
+<fn-group>
+
+<fn id="fn1"><label><sup>1</sup></label>See Appendix B in \<xref ref-type="bibr" rid="">\citet{Cengiz2019}</xref><p>
+
+<fn id="fn2"><label><sup>2</sup></label>By April 2019, the NLW was \\pounds 8.21 per hour. In comparison, the minimum wage for 21-24 year olds was \\pounds 7.70 (6\\% lower than the NLW), for 18-20 year olds was \\pounds 6.15 (25\\% lower) and \\pounds 4.35 for 16-17 year olds (47\\% lower)<p>
+
+<fn id="fn3"><label><sup>3</sup></label>With treatment effect heterogeneity, the estimated employment effects can be positive even if the employment change is negative for all groups. To see that, consider a setting with four demographic groups: low and high skilled women and men. Suppose that the employment elasticity with respect to the minimum wage is substantially larger for women, but the difference in exposure between low- and high-skilled women is small. At the same time, the employment elasticity for men is small, but the exposure difference between low- and high-skilled men is large. In this case, the standard difference-in-differences approach could yield a positive employment elasticity, as it would pick up that the large exposure differences between men lead to small employment changes, while the small exposure differences for women lead to large negative employment changes<p>
+
+<fn id="fn4"><label><sup>4</sup></label>We invite interested readers to go through Sections \\ref{sec:lm_implementation}-\\ref{sec:lm_results} before turning to Appendix C<p>
+
+<fn id="fn5"><label><sup>5</sup></label>Our estimation of the regional wage premia raises two main concerns. The first one is that regression equation \\ref{eq:wpregression} does not account for unobserved differences in skill levels across locations. In Appendix D.2, we provide alternative estimates of regional wage premia based on a two-way fixed effects estimation including individual fixed effects in the regression. A second concern for the identification of regional wage premia is sorting of workers across regions based on a (person-region) match component of wages. The presence of sorting would imply that our regression equation \\ref{eq:wpregression} is misspecified and our estimate of $\\ln \\delta_r$ biased. We formalize this issue and test its empirical relevance in Appendix D.2<p>
+
+<fn id="fn6"><label><sup>6</sup></label>Part of the growth in average wages can be driven by changes in the minimum wage itself. To make sure that this is not what drives our estimates, in our benchmark specification we control for the direct impact of the minimum wage on average wage growth by estimating time effects using the following regression: $\\ln w^*_{it}=\\gamma_r + \\beta GAP_{r(i,t)} + \\tau_t + \\varepsilon_{it}$, where $\\ln w^*_{irt}$ is the raw log hourly wage of individual $i$ in location $r$ and year $t$, $GAP_{r(i,t)}$ is the mechanical increase in average wages that the higher minimum wage would induce for workers in location $r$ in year $t$ relative to $t-1$, $\\tau_t$ is the time trend that we want to extract and $\\varepsilon_{it}$ an error term. Appendix Table A1 reports the estimated coefficients $\\beta$ and $\\tau_t$ for different year-pairs in our sample. In Section \\ref{sec:lm_robustness}, we assess the robustness of our results to estimating wage trends without controlling for $GAP_{r(i,t)}$. This makes virtually no difference to our results<p>
+
+<fn id="fn7"><label><sup>7</sup></label>To alleviate this concern, in our empirical implementation we use very high wage locations as control group, as we explain in more detail below<p>
+
+<fn id="fn8"><label><sup>8</sup></label>This step corresponds to further averaging equation \\ref{eq:average_region} over time periods, which would lead to ${\\frac{\\sum_{t}\\sum_{r\\in L}(\\Delta E_{rt}(k) - \\Delta E_{rt}(k)^{CF})N_{rt-1}}{\\sum_{t}\\sum_{r\\in L}N_{rt-1}}}$<p>
+
+<fn id="fn9"><label><sup>9</sup></label>To compute $\\overline{wb}_{-1}$, we deflate wages in each region with the reference being the average wage premium in the low wage regions. In other words, $\\overline{wb}_{-1}$ is in the price (wage) of the low wage regions. This makes it consistent with our estimated $\\alpha_{f}$<p>
+
+<fn id="fn10"><label><sup>10</sup></label>To define the subgroup of workers with wages in the bottom half of the wage distribution, we estimate regression equation \\ref{eq:wpregression} using observations over the entire wage distribution and use the estimated coefficients -- with the exception of the estimated location effects $\\ln \\delta_r$ -- to predict individual wages. We then estimate our new $\\ln \\delta_r$ from regression equation \\ref{eq:wpregression} on the bottom half of the distribution of predicted wages<p>
+
+<fn id="fn11"><label><sup>11</sup></label>Note that the specifications with different control regions would not be expected to have the same  as the main specification since the difference between treatment and control regions is smaller in the alternative specification than in the main one. Therefore this robustness check is mainly informative for the elasticity it delivers<p>
+
+<fn id="fn12"><label><sup>12</sup></label>Wages are deflated using time trends estimated on the 16-64 population too. See footnote \\ref{foot:gap} for details<p>
+
+<fn id="fn13"><label><sup>13</sup></label>Working households are defined as households with at least one member with positive earnings from employment<p>
+
+<fn id="fn14"><label><sup>14</sup></label>A different approach in the spirit of \<xref ref-type="bibr" rid="">\citet{Dube2019}</xref> would directly assess the impact of the minimum wage on household incomes by comparing households in high and low paid regions. We do not do this for two reasons. First, the data we use on household incomes is too small a sample to allow us to split it into fine geographic areas. Second, even if we had access to a larger sample, our approach has some distinctive merits to the direct approach. In practice, a large number of factors affect benefit entitlements and thus household incomes. Since minimum wages will only have a relatively small impact on most households' income, small changes in the tax code could bias the estimates substantially. Differential trends across areas in family composition or housing costs could have large effects on household income estimates, while having a limited impact on our labour market estimates<p>
+
+<fn id="fn15"><label><sup>15</sup></label>To be consistent with the frequency-distribution analysis, we use $\\tau_{2016}$ from the specification in footnote \\ref{foot:gap} to uprate earnings. For other financial variables we use official price indices, such as average rents<p>
+
+<fn id="fn16"><label><sup>16</sup></label>For this exercise we require absolute, rather than relative, estimates of the effect of the NLW on each wage bin. To get this, we multiply our estimates of $\\alpha_f$ from regression equation \\ref{eq:bunching} by the ratio of the overall absolute employment effect to the overall relative employment effect. See Section \\ref{sec:lm_implementation} under `Calculating the employment elasticity' for details on how we retrieve the absolute employment effect. This is equivalent to assuming that the shape of the effect of the NLW (but not the magnitude) is the same across high and low wage regions<p>
+
+<fn id="fn17"><label><sup>17</sup></label>We assume that \\textit{within} each $\\pounds 0.25$ wage bin the distribution of wages stays the same, except for the bin that spans the range between the NLW and the NLW $+ \\pounds 0.25$. We base the distribution of the latter on the observed hourly wages in the bin around the October 2014 minimum wage in the base data<p>
+
+<fn id="fn18"><label><sup>18</sup></label>The exception is that we assume full take-up of child benefits, since child benefit take-up rates are over 95\\%<p>
+
+<fn id="fn19"><label><sup>19</sup></label>We classify families by four categories: couples and singles, with and without children<p>
+
+<fn id="fn20"><label><sup>20</sup></label>A caveat is that self-reported take-up in survey data tends to imply lower overall benefit spending than administrative records. In recent years about 18\\% of all benefit spending is estimated to be 'missing' in the FRS data \<xref ref-type="bibr" rid="">\citep{Corlett2021}</xref>. As a robustness check, we also ran the analysis under the assumption of full take-up. The key conclusions are unchanged<p>
+
+<fn id="fn21"><label><sup>21</sup></label>The FRS data we use cover the period when the National Minimum Wage was $\\pounds 6.50$. We simulate an increase to $\\pounds 7.50$<p>
+
+<fn id="fn22"><label><sup>22</sup></label>We assign households to income deciles based on their household equivalised income, using the OECD-modified equivalence scale, before the introduction of the NLW. We compute changes in household incomes, with the household as the unit of analysis<p>
+
+<fn id="fn23"><label><sup>23</sup></label>The bottom decile includes a significant number of households who are not in receipt of benefits -- perhaps because they are not entitled in virtue of having significant assets, or because they are not claiming benefits they are entitled to. This means that they see relatively less of the NLW gross earnings gain clawed back via lower benefits when their earnings increase<p>
+
+<fn id="fn24"><label><sup>24</sup></label>See Figures 5 and 6 in \<xref ref-type="bibr" rid="">\citet{Dube2019}</xref><p>
+
+<fn id="fn25"><label><sup>25</sup></label>Conversely, it does not seem to be the case that minimum wage workers are more likely to live with someone with higher hourly wages in the UK than in the US<p>
+
+</fn-group>
+
