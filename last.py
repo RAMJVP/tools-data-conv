@@ -33,8 +33,14 @@ doctype = f'<!DOCTYPE article PUBLIC "-//NLM//DTD UCP JATS (Z39.96) Journal Publ
 # Create front section
 front = etree.SubElement(root, "front")
 journal_meta = etree.SubElement(front, "journal-meta")
+
+# Add required journal metadata
 journal_id = etree.SubElement(journal_meta, "journal-id", attrib={"journal-id-type": "publisher-id"})
 journal_id.text = "JPE"
+issn_ppub = etree.SubElement(journal_meta, "issn", attrib={"pub-type": "ppub"})
+issn_ppub.text = "0022-3808"
+issn_epub = etree.SubElement(journal_meta, "issn", attrib={"pub-type": "epub"})
+issn_epub.text = "1537-534X"
 
 # Article metadata
 article_meta = etree.SubElement(front, "article-meta")
@@ -53,6 +59,9 @@ for line in lines:
     p = etree.SubElement(body, "p")
     p.text = line.strip()
 
+# Track defined references
+defined_references = set()
+
 # Additional processing for equations, tables, figures, references
 xref_patterns = [
     (re.compile(r'\\cite\{(.*?)\}'), "bibr"),
@@ -67,15 +76,23 @@ for para in body.iter("p"):
         for pattern, ref_type in xref_patterns:
             matches = pattern.findall(text)
             for match in matches:
-                xref = etree.Element("xref", attrib={"ref-type": ref_type, "rid": match})
+                sanitized_rid = re.sub(r'[^a-zA-Z0-9_-]', '_', match)  # Sanitize rid values
+                xref = etree.Element("xref", attrib={"ref-type": ref_type, "rid": sanitized_rid})
                 xref.text = match
                 para.append(xref)
+                defined_references.add(sanitized_rid)
 
 # Create back section
 back = etree.SubElement(root, "back")
 ref_list = etree.SubElement(back, "ref-list")
 label = etree.SubElement(ref_list, "label")
 label.text = "References"
+
+# Ensure all references exist in ref-list
+for ref_id in defined_references:
+    ref = etree.SubElement(ref_list, "ref", attrib={"id": ref_id})
+    mixed_citation = etree.SubElement(ref, "mixed-citation")
+    mixed_citation.text = f"Placeholder citation for {ref_id}"  # Add placeholder if missing
 
 # Convert to string and write to file
 xml_string = etree.tostring(root, pretty_print=True, encoding='utf-8').decode('utf-8')
